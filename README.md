@@ -1,7 +1,6 @@
 # Job board starter
 
-A small job board for an insiderOne work sample. It is made up: the jobs and
-companies are not real.
+A small job board for an insiderOne work sample.
 
 ## Run it
 
