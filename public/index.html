@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job board</title>
+    <style>
+      /* ── Base ── */
+      body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 640px; padding: 16px; }
+      ul { padding: 0; }
+      input { font-size: 16px; padding: 8px; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
+
+      /* ── Job card ── */
+      li {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        list-style: none;
+        margin: 8px 0;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .job-info { flex: 1; }
+
+      /* ── Buttons ── */
+      button {
+        cursor: pointer;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .btn-save   { background: #e8f0fe; color: #1a73e8; }
+      .btn-save:hover { background: #d2e3fc; }
+      .btn-save.saved { background: #e6f4ea; color: #188038; cursor: default; }
+      .btn-remove { background: #fce8e6; color: #c5221f; }
+      .btn-remove:hover { background: #f5c6c4; }
+
+      /* ── Sections ── */
+      h2 { margin-top: 32px; font-size: 1.1rem; }
+      #saved-section { border-top: 2px solid #eee; margin-top: 24px; padding-top: 8px; }
+      .empty-note { color: #888; font-size: 0.9rem; padding: 8px 0; }
+
+      /* ── Toast ── */
+      #toast {
+        position: fixed; bottom: 20px; right: 20px;
+        background: #323232; color: #fff;
+        padding: 10px 18px; border-radius: 8px;
+        font-size: 14px; opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+      #toast.visible { opacity: 1; }
+    </style>
+  </head>
+  <body>
+    <h1>Jobs</h1>
+    <input id="search" placeholder="Search by title, company or place" />
+    <ul id="jobs"></ul>
+
+    <section id="saved-section">
+      <h2>⭐ Saved jobs</h2>
+      <ul id="saved-jobs"></ul>
+    </section>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
